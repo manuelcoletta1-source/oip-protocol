@@ -1,16 +1,22 @@
 # OIP Quickstart (v0.1.0)
 
-This guide lets you generate an OID, emit a signed event, and verify it locally in under 2 minutes.
+Generate an operational identity, emit a signed event, and verify it locally in under two minutes.
 
-## Requirements
-- Python 3.9+
-- No external dependencies
+Requirements:
+Python 3.9+  
+No external dependencies
 
-## 1) Generate keys
+---
+
+## 1. Generate keypair
+
 ```bash
 python3 reference/emitter-cli/oip_emit.py gen-key --out keys.json
 
-2) Create an OID
+
+---
+
+2. Create Operational Identity (OID)
 
 PUB=$(python3 -c "import json;print(json.load(open('keys.json'))['public_key'])")
 
@@ -21,7 +27,10 @@ python3 reference/emitter-cli/oip_emit.py make-oid \
   --firmware-hash eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee \
   --out oid.json
 
-3) Emit an event (and save to chain)
+
+---
+
+3. Emit signed event
 
 SEED=$(python3 -c "import json;print(json.load(open('keys.json'))['private_key_seed'])")
 
@@ -36,57 +45,92 @@ python3 reference/emitter-cli/oip_emit.py emit \
   --chain-dir ./chain \
   --out event.json
 
-4) Verify
 
-python3 reference/verifier-cli/oip_verify.py verify --event event.json --oid oid.json --chain-dir ./chain
+---
+
+4. Verify event
+
+python3 reference/verifier-cli/oip_verify.py verify \
+  --event event.json \
+  --oid oid.json \
+  --chain-dir ./chain
 
 Expected output:
 
 VALID
 
 
-5) Run the conformance suite
+---
+
+5. Run conformance suite
 
 python3 tests/run_tests.py
 
-Expected output:
+Expected:
 
 ALL TESTS PASSED
 
+---
 
-## 2) `RELEASES/v0.1.0.md` (file completo)
+# 📄 FILE 2  
+## crea cartella: `RELEASES/`
+
+poi file:
+
+## `RELEASES/v0.1.0.md`
+
 ```md
 # OIP v0.1.0 — Initial Deterministic Release
 
-## Summary
-OIP v0.1.0 is the first draft reference release of a minimal deterministic attribution and verification protocol for autonomous and AI-driven systems.
-
-## Included
-- Specification: `SPEC/OIP-v0.1.md` (v0.1.0)
-- Reference verifier (pure Python, deterministic, fail-closed)
-- Reference emitter (pure Python: keygen, OID builder, event emit, chain save)
-- Conformance test suite
-- Security and governance baseline docs
-
-## Normative Rules (Highlights)
-- Canonical JSON required for all hashing/signing (deterministic)
-- `event_id` computed over EventBody excluding `event_id` and `signature`
-- Signature computed over the same EventBody
-- Append-only chain requirements per OID
-- Verifier outputs: VALID / INVALID / INCOMPLETE / REVOKED
-
-## Intended Use
-- Interoperability testing
-- OEM integration evaluation
-- Safety/audit logging prototypes
-- Forensic reconstruction demos
-
-Status: Draft (reference implementation).
-
+Operational Identity Protocol v0.1.0 is the first reference release of a minimal deterministic attribution and verification protocol for autonomous and AI-driven systems.
 
 ---
 
+## Included
+
+- Core specification v0.1.0
+- Deterministic canonical JSON rules
+- Reference verifier (pure Python)
+- Reference emitter (pure Python)
+- Conformance test suite
+- Security baseline
+- Governance baseline
+
+---
+
+## Core Properties
+
+Deterministic verification  
+Fail-closed validation  
+Append-only identity-bound event chains  
+Vendor-neutral implementation  
+Local-first operation  
+
+---
+
+## Verification Outputs
+
+VALID  
+INVALID  
+INCOMPLETE  
+REVOKED  
+
+---
+
+## Intended Use
+
+Autonomous systems  
+Robotics  
+Industrial automation  
+AI decision systems  
+Forensic reconstruction  
+Safety audit logging  
+
+---
+
+## Status
+
+Draft reference implementation.  
+Intended for interoperability testing and OEM evaluation.
 
 
-
-Scrivimi “fatto” quando hai pushato anche questo.
