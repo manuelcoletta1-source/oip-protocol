@@ -1,0 +1,15 @@
+{
+  "event_id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "oid": "OID-ROBOT-0001",
+  "timestamp": "2026-02-21T10:00:00Z",
+  "sequence": 1,
+  "prev_event_hash": null,
+  "action_type": "navigation_decision",
+  "risk_level": "R2",
+  "input_digest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "decision_digest": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+  "state_digest": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+  "firmware_hash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+  "model_hash": null,
+  "signature": "BASE64_OR_HEX_SIGNATURE_PLACEHOLDER"
+}
